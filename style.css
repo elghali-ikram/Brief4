@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Inter:wght@300;400;500;600;700;900&family=Lora:wght@400;500;600;700&display=swap');
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+ /*================ Grid and page styling =====================  */
+
+body {
+    max-width:  100%;
+    display: grid;
+    grid-template-columns: repeat(12,8.33%);
+    background-color: #5e5454;
+}
+pre
+{
+    font-family: monospace;
+}
+h1 {
+    font-family: "Lora",serif;
+    font-size: 3rem;
+    padding-bottom: 2.25rem;
+    font-weight: 900;
+    color: white;
+}
+h2 {
+    background-color:#B00101;
+    max-width: 13.438rem;
+    height: 3.125rem;
+    font-family: "Iceberg";
+    font-weight: 600;
+    border-radius: 1rem 1rem 0 0;
+    padding: 0.6rem 0.5rem;
+    padding-bottom: 2.25rem;
+}
+#p {
+    background-color:#F5E0E0;
+    width: 99%;
+    font-weight: 300;
+    border-radius: 0 1rem 1rem 1rem;
+    padding: 2.3rem;
+}
+.wrapper {
+    margin-top: 3rem;
+}
+#container {
+    background-color:#F5E0E0;
+    width:99%;
+    font-weight: 300;
+    border-radius: 0 1rem 1rem 1rem;
+    padding: 2.3rem;
+}
+form {
+    display: flex;
+    gap: 2.18rem;
+    flex-wrap: wrap;
+    border-radius: 0 1rem 1rem 1rem;
+    width: 99%;
+    padding-bottom: 4rem;
+    background-color:#F5E0E0;
+}
+header {
+    position: relative;
+    grid-column: 1/-1;
+}
+figure img {
+    max-width: 100%;
+    height: 20%;
+}
+header a {
+    width: 5rem;
+    padding-top: 4.5rem ;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+header div {
+    display: flex;
+    gap: 8rem;
+}
+header div { 
+    position: absolute;
+}
+header button {
+    position: absolute;
+    width: 20rem;
+    height: 4rem;
+    top: 79%;
+    left: 22rem;
+    color: white;
+    font-family: "Iceberg";
+    font-size: 34px;
+    border-top-left-radius: 19rem;
+    border-bottom-right-radius: 19rem;
+   background-color: #D70000;
+   cursor: pointer;
+}
+header button:hover {
+    color: black;
+    background-color: rgb(0, 254, 0);
+}
+nav {
+    width: 18rem;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    grid-column: 1/4;
+    background-color: #000000;
+}
+nav a , nav button{
+    padding: 6px 8px 6px 16px;
+    margin: 0;
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+#myDIV-1,#myDIV-2,#myDIV-3
+{
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+    color: aliceblue;
+}
+nav img {
+    width: 70%;
+    height: 5rem;
+    margin: 1rem 0 2rem 1rem;
+}
+nav a {
+    background: linear-gradient(#992c2c 0 0) var(--p, 0)/var(--p, 0) no-repeat;
+    transition: 0.4s, background-position 0s;
+    line-height: 2.3rem;
+}
+nav button {
+    background: linear-gradient(#992c2c 0 0) var(--p, 0)/var(--p, 0) no-repeat;
+    transition: 0.4s, background-position 0s;
+    line-height: 2.3rem;
+    border-radius: 0;
+}
+nav a:hover {
+    --p: 100%;
+    color: #ffffff;
+}
+nav button:hover {
+    --p: 100%;
+    color: #ffffff;
+}
+main {
+    grid-column: 4/-1;
+}
+button {
+    border: none;
+    border-radius: 3rem;
+    color: white;
+    background-color: #1d1b1b;
+    cursor: pointer;
+}
+input {
+    border: none;
+    border-radius: 5rem;
+}
+#nav {
+    display: none;
+}
+pre { 
+    display:none;
+}
+#Exercice1 {
+    display: none;
+ }
+ #Exercice2 {
+     display: none;
+ }
+ #Exercice3 {
+     display: none;
+ }
+ #Exercice4 {
+     display: none;
+ }
+ #Exercice5 {
+     display: none;
+ }
+ #Exercice6 {
+     display: none;
+ }
+ #Exercice7 {
+     display: none;
+ }
+ #Exercice8 {
+     display: none;
+ }
+ #Exercice9 {
+     display: none;
+ }
+ #Exercice10 {
+     display: none;
+ }
+ #remove {
+    display: none;
+ }
+ #Remove_D {
+    display: none;
+    margin-left: 14rem;
+ }
+ #New_Table {
+    display: none;
+    margin-left: 2rem;
+ }
+ #Devine_again {
+    display: none;
+ }
+ #Losange_RT {
+    display: none;
+ }
+ #Cal_SO {
+    display: none;
+ }
+ #ReSO {
+    display: none;
+ }
+ #V_SO {
+    display: none;
+ }
+ #Tri_SO {
+    display: none;
+ }
+ #SrT_SO {
+    display: none;
+ }
+
+ /* ============ Permutation deux nombre =========== */
+
+#Exercice1 form input,label,button {
+    display: block;
+}
+#Exercice1 form label {
+    margin: 1rem;
+}
+#Exercice1 form input {
+    width: 16.188rem;
+    height:2.438rem ;
+    margin: 0;
+}
+#Exercice1 form  div:first-child input {
+    margin-left: 1rem;
+}
+#Exercice1 form button {
+    width: 4.938rem;
+    height: 2.438rem;
+    font-size: 17px;
+    margin-top: 3.3rem;
+    color: white;
+    
+}
+
+/* ============ Valider une date =========== */
+
+#Exercice2 form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+#Exercice2 form div {
+    max-width: 45rem;
+}
+#Exercice2 form p {
+    margin-left: 5rem;
+}
+#Exercice2 form label {
+    margin: 1rem 0 0 5rem;
+}
+#Exercice2 form input {
+    width: 17.188rem;
+    height:2.438rem ;
+    margin: 0;
+}
+#Exercice2 form div:first-child label,input {
+    display: inline-block;
+}
+#Exercice2 form div:nth-of-type(2) label,input {
+    display: inline-block;
+}
+#Exercice2 form div:nth-of-type(3) label,input,button{
+    display: inline-block;
+}
+#Exercice2 form button {
+    width: 4.938rem;
+    height: 2.438rem;
+    font-size: 17px;
+    color: white;
+}
+
+/* ============ La boucle for_Table de multiplication =========== */
+
+#Exercice3 form {
+    display: inline-block;
+    padding-top: 2rem;
+}
+#Exercice3 form input {
+    width: 17.188rem;
+    height:2.438rem ;
+     margin: 0 2rem 0 6rem;
+}
+#Exercice3 form button {
+    width: 12rem;
+    height: 2.438rem;
+    font-size: 17px;
+    color: white;
+}
+#Exercice3 form p {
+    margin-left: 5rem;
+}
+
+/* ============ La boucle while_Devine le nombre =========== */
+
+#Exercice4 form {
+    display: flex;
+    padding-top: 2rem;
+}
+#Exercice4 form input {
+    width: 17.188rem;
+    height:2.438rem ;
+     margin: 0 2rem 0 5rem;
+}
+#Exercice4 form div {
+    display: flex;
+    flex-direction: column;
+}
+#Exercice4 form button {
+    width: 7rem;
+    height: 2.438rem;
+    margin-top: 0.5rem;
+    font-size: 17px;
+    color: white;
+}
+#Exercice4 form p {
+    margin: 0.5rem 0 0 5rem;
+}
+
+/* ============ Les boucles imbriquées_Losange en étoiles =========== */
+
+#Exercice5 form {
+    padding-top: 2rem;
+}
+#Exercice5 form label,input,button {
+    display: inline-block;
+}
+#Exercice5 form input {
+    width: 13.188rem;
+    height:2.438rem ;
+}
+#Exercice5 form label {
+    margin: 0.5rem 0 0 2rem;
+}
+#Exercice5 form button {
+    width: 7rem;
+    height: 2.438rem;
+    font-size: 17px;
+    color: white;
+}
+#Exercice5 form  p {
+    margin-left: 2rem;
+}
+#Exercice5 form pre
+{
+    display: block !important;
+}
+
+/* ============ Les fonction_Calculatrice =========== */
+
+#Exercice6 form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+}
+
+#Exercice6 form input {
+    width: 10rem;
+    height:2.438rem ;
+    margin-bottom: 0;
+}
+#Exercice6 form button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 17px;
+    border: none;
+    color: white;
+    margin-bottom: 0;
+} 
+#Exercice6 div:nth-of-type(3) button{
+    width: 7rem;
+    height: 2.5rem;
+    margin-left: 1rem;
+}
+#Exercice6 button:hover {
+    background-color: #D33C3C;
+}
+/* ============ Recherche et suppression dans une chaine =========== */
+
+#Exercice7 form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+}
+#Exercice7 form input {
+    width: 10rem;
+    height:2.438rem ;
+}
+#Exercice7 form label,input,button,p {
+    display: inline-block;
+}
+#Exercice7 form div:first-child label,input,button {
+    margin-bottom: 2rem;
+}
+#Exercice7 #Sp_chaine {
+   max-width: 25rem;
+}
+#Exercice7 form div button {
+    height: 2.5rem;
+    margin-left: 1rem;
+    font-size: 17px;
+    border: none;
+    color: white;
+}
+#Exercice7 form p {
+    width: 20rem;
+    height: 5rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: #b5b3b3;
+}
+#Exercice7 form div {
+    max-width: 58rem;
+}
+#Exercice7 form p:nth-of-type(2) {
+    margin-left: 6rem;
+}
+
+/* ============ Compter le nombre de voyelles dans une chaine =========== */
+
+#Exercice8 form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+}
+#Exercice8 form input {
+    width: 15rem;
+    height:2.438rem ;
+}
+#Exercice8 form  label,input,button {
+    display: inline-block;
+}
+#text {
+    background-color: #b5b3b3;
+    max-width: 20rem;
+    height: 5rem;
+    padding: 2rem;
+    text-align: center;
+    align-self: center;
+}
+#Exercice8 form div button {
+    height: 2.5rem;
+    margin-left: 1rem;
+    font-size: 17px;
+    border: none;
+    color: white;
+}
+/* ============ Tri d'un tablaeu =========== */
+
+#Exercice9 form {
+    padding: 2rem 4rem;
+}
+#Exercice9 form div div:first-child input {
+    width: 15rem;
+    height:2.438rem ;
+}
+#Exercice9 form div label,input,div,button {
+    display: inline-block;
+}
+#Exercice9 form div button {
+    height: 2.5rem;
+    margin-left: 2rem;
+    font-size: 17px;
+    border: none;
+    color: white;
+}
+#tableau1 input {
+    margin: 0;
+    width: 4rem;
+    height:2.438rem ;
+}
+#trier_inputs input {
+    margin: 0;
+    width: 4rem;
+    height:2.438rem ;
+}
+
+/* ============ Recherche dans un tableau =========== */
+
+#Exercice10 form {
+    display: flex;
+    padding: 2rem 4rem;
+}
+#Exercice10 form div div:first-child input {
+    width: 15rem;
+    height:2.438rem ;
+}
+#Exercice10 form div label,input,div,button {
+    display: inline-block;
+}
+#Exercice10 form div button {
+    height: 2.5rem;
+    margin-left: 1rem;
+    font-size: 17px;
+    border: none;
+    color: white;
+}
+#tableau input {
+    margin: 0;
+    width: 4rem;
+    height:2.438rem ;
+}
+#Exercice10 form div div:last-child {
+    margin-top: 2rem;
+}
+#Exercice10 form div button {
+    margin-right: 6rem;
+}
+#Exercice10 form div div:last-child input {
+    width: 7rem;
+    height:2.438rem ;
+}
+#Exercice10 form p {
+    width: 15rem;
+    margin-left: 18rem;
+    padding: 2rem;
+    background-color: #b5b3b3;
+}
+
+
+/* ========= Footer ========= */
+
+/* footer {
+    background-color: #ffffff;
+    padding: 5em 0 2em;
+    width: 80%;
+}
+#footer {
+    display: flex;
+    gap: 232px;
+    width: 100%;
+    margin-left: 15em;
+   
+}
+#footer i {
+    color: #395C98;
+}
+#footer p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+#footer ul {
+    list-style: none;
+    line-height: 19px;
+    color: #000000;
+    padding: 0;
+}
+#footer ul li {
+    font-size: small;
+    margin-bottom: 1em;
+    color: #000000;
+    font-family: 'Open sans', sans-serif;
+}
+footer #copyright {
+    width: 20rem;
+    text-align: center;
+    line-height: 19px;
+    color: #395C98;
+}
+footer #last {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin-left: 22rem;
+}
+footer img {
+    width: 29.688em;
+    height: 88px;
+    align-self: center;
+} */
+
+/* ============= Media Query ================ */
+
+@media screen and (max-width:430px) {
+
+   body {
+        background-color: white;
+   }
+    h1 {
+        font-size: 18px;
+    }
+    h2 {
+       font-size: 1rem;
+       width: 7rem;
+       height: 1rem;
+    }
+    label {
+        font-size: small;
+        width: 13rem;
+    }
+    #p {
+        font-size: 1rem;
+        max-width: 22rem;
+    }
+    .wrapper {
+        margin-top: 3rem;
+    }
+    #container {
+        max-width: 22rem;
+    }
+    form {
+        gap: 0;
+        max-width: 22rem;
+    }
+    header {
+        position: relative;
+    }
+    header a {
+        width: 3rem;
+        padding-top: 1.5rem ;
+        font-weight: 500;
+        font-size: 12px;
+        text-decoration: none;
+        color: black;
+    }
+    header div {
+        display: flex;
+        gap: 1rem;
+
+    }
+    header figure img {
+        grid-column: 1/-1;
+    }
+    header div img {
+        width: 5rem;
+        height: 3rem;
+    }
+    header button {
+        width: 12rem;
+        height: 2.5rem;
+        font-size: 17px;
+        top: 74%;
+        left: 4rem;
+    }
+    main {
+        grid-column: 5/-1;
+    }
+    nav {
+        width: 8rem;
+    }
+    nav a { 
+      font-size: 10px;
+    }
+    nav button {
+        font-size: 10px;
+    }
+    nav img { 
+        margin: 0;
+    }
+    #Exercice1 form input {
+      width: 5rem;
+      margin-left: 1rem;
+    }
+    #Exercice1 form div {
+        width: 6rem;
+    }
+    #Exercice1 #swap {
+        width: 3rem;
+        margin: 3rem 0 0 1rem;
+    }
+    #Exercice1 #remove {
+        margin-left: 6rem;
+    }
+    #myPre1 {
+        width: 5rem;
+    }
+    #Exercice2 form input {
+      width: 11rem;
+      margin-left: 1rem;
+    }
+    #Exercice2 form button {
+        margin: 1rem 0 0 1rem;
+    }
+    #Exercice2 #VBtn {
+       margin-left: 1rem;
+    }
+    #Exercice3 form input {
+        width: 10rem;
+        margin-left: 2rem;
+    }
+    #Exercice3 form button {
+        width: 10rem;
+        margin: 1rem 0 0 2rem;
+        font-size: 14px;
+    }
+    #Exercice4 form input {
+        width: 10rem;
+        margin-left: 2rem;
+    }
+    #Exercice4 form button {
+        margin: 1rem 3.3rem;
+    }
+    #Exercice7 form div {
+        width: 11rem;
+    }
+    #Exercice7 form p {
+        width: 5rem;
+        font-size: 12px;
+        text-align: center;
+        margin-left: 0;
+    }
+    #Exercice7 form div:first-child label,input,button {
+        margin-bottom: 0.5rem;
+    }
+    #Exercice7 #Sp_chaine {
+       max-width: 25rem;
+    }
+    #Exercice7 form div button {
+        font-size: 10px;
+    }
+    #Exercice7  #newResult {
+        margin-left: 0;
+    }
+    #Exercice8 form input {
+        width: 9rem;
+        margin: 0.5rem 0;
+    }
+    #Exercice8 form div button {
+        font-size: 9px;
+        margin: 0.5rem 0;
+    }
+    #text {
+        width: 9rem;
+        font-size: 10px;
+        align-self: flex-start;
+    }
+}

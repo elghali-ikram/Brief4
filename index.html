@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/fb9db22d4b.js" crossorigin="anonymous"></script>
+        
+        <title>JS learning</title>
+    </head>
+    <body>
+      <header id="Home_Page">
+        <div>
+        <img src="img/HPlogo.png" alt="Header_logo">
+          <a href="#nav">Exercice</a>
+          <a href="#">Sign UP</a>
+          <a href="#">Sign IN</a>
+        </div>
+         <figure>
+        <img src="img/header.png" alt="header_img">
+      </figure>
+        <button id="StartEX">START EXERCICES</button>
+      </header>
+     
+        <nav id="nav">
+            <img src="img/logo.png" alt="logo">
+            <a id="EX1">Variables et affectation</a>
+            <a id="EX2">Conditions</a>
+            <button class="btn-dropdown" id="funct1">Boucles <i class="fa fa-caret-down"></i></button>
+            <div id="myDIV-1">
+              <a id="EX3">La boucle for</a>
+              <a id="EX4">La boucle while</a>
+              <a id="EX5">Les boucles imbriquées</a>
+            </div>
+            <a id="EX6">Calculatrice</a>
+            <button class="btn-dropdown" id="funct2">Chaines de caractères <i class="fa fa-caret-down"></i></button>
+              <div id="myDIV-2">
+                <a id="EX7">Recherche et suppression</a>
+                <a id="EX8">Nombre de voyelles</a>
+              </div>
+              <button class="btn-dropdown" id="funct3">Tableaux <i class="fa fa-caret-down"></i></button>
+              <div id="myDIV-3">
+                <a id="EX9">Tri dun tableau</a>
+                <a id="EX10">Recherche d'un tableau</a>
+              </div>
+        </nav>
+
+        <!-- ============= Permutation deux nombre ============== -->
+
+      <main id="Exercice1">
+        <section class="wrapper">
+            <h1>Permutation de deux nombres</h1>
+            <h2>Enoncé</h2>
+            <p id="p">Ecrire un script qui permute deux nombres saisis dans deux inputs</p>
+        </section>
+
+        <section class="wrapper">
+            <h2>Démo</h2>
+            <form>
+                <div>
+                    <label for="number">Number 1:</label>
+                    <input type="number" id="number1" placeholder="Enter a number">
+                </div>
+                <button id="swap">&#8644</button>
+                <div>
+                    <label for="number">Number 2:</label>
+                    <input type="number" id="number2" placeholder="Enter a number">
+                </div>
+                <button id="remove">remove</button>
+
+            </form>
+        </section>
+
+        <section class="wrapper ">
+            <h2>Code Source</h2>
+            <div id="container">
+            <pre id="myPre1">
+        let swapInput=document.getElementById("swap");
+        let remove=document.getElementById("remove");   
+        swapInput.addEventListener("click" , (e) =>{
+        e.preventDefault()
+        let number1=document. getElementById ("number1") . value;
+        let number2=document. getElementById ("number2") . value;
+        [number1,number2]=[number2,number1]
+        document. getElementById ("number1") . value=number1;
+        document. getElementById ("number2") . value=number2;
+        })
+        remove.addEventListener("click" ,(e) => {
+            e.preventDefault()
+        document. getElementById ("number1") . value="";
+        document. getElementById ("number2") . value="";
+        })
+        </pre>
+      </div>
+        </section>
+     </main>
+
+     <!-- ===================== Valider une date ============== -->
+
+     <main id="Exercice2">
+        <section class="wrapper">
+            <h1>Valider une date</h1>
+            <h2>Enoncé</h2>
+            <p id="p">Ecrire un script qui permet de saisir les trois champs d’une date (jour, mois et année) et 
+                d’indiquer si la date est correcte ou non</p>
+        </section>
+
+        <section class="wrapper">
+            <h2>Démo</h2>
+            <form>
+                <div>
+                <label>Jour :</label>
+                <input type="number" id="jour" name="jour">
+            </div>
+            <div>
+                <label>Mois :</label>
+                <input type="number" id="mois">
+            </div>
+            <div>
+                <label>Anne :</label>
+                <input type="number" id="anne"> 
+                <button id="VBtn">Valider</button>
+                <button id="Remove_D">remove</button>
+            </div>
+                <p id="text-anne"></p>    
+            </form>
+        </section>
+
+        <section class="wrapper">
+            <h2>Code Source</h2>
+            <div id="container">
+            <pre id="myPre2">
+                let VBtn=document.getElementById("VBtn");
+VBtn.addEventListener ("click" , (e) => {
+  e.preventDefault();
+  let T1;
+  let T2;
+  let T3;
+  let j = document.getElementById("jour").value;
+  let m = document.getElementById("mois").value;
+  let a = document.getElementById("anne").value;
+  T1 = ((a > 0) && (m == 1 || m == 3 || m == 5 || m == 7 || m == 10 || m == 8 || m == 12) && (j <= 31 && j >= 1)) 
+  || ((a > 0) && (m == 4 || m == 6 || m == 9 || m == 11));
+  T2 = (((a > 0) && ((a % 400 == 0) || (a % 4 == 0 && a % 100 != 0))) && (m == 2) && (j <= 29 && j >= 1));
+  T3 = (((a > 0) && ((a % 400 != 0) || (a % 4 != 0 && a % 100 == 0))) && (m == 2) && (j <= 28 && j >= 1));
+  if (T1 == true || T2 == true || T3 == true) {
+
+    document.getElementById("text-anne").innerHTML = j + "/" + m + "/" + a + " est Valide"
+  }
+  else {
+    document.getElementById("text-anne").innerHTML = j + "/" + m + "/" + a + " est non Valide"
+  }
+})
+        </pre>
+      </div>
+        </section>
+     </main>
+
+        <!-- ================== La boucle for_Table de multiplication ================= -->
+
+     <main id="Exercice3">
+        <section class="wrapper">
+            <h1>Table de multiplication</h1>
+            <h2>Enoncé</h2>
+            <p id="p">Afficher la table de multiplication d'un nombre saisi par l'utilisateur dans un</p>
+        </section>
+
+        <section class="wrapper for">
+            <h2>Démo</h2>
+            <form>
+                <input type="number" id="Table_value" placeholder="Enter a number">
+                <button id="Générer_T">Générer la table</button>
+                <button id="New_Table">New table</button>
+                <p id="MT"></p>
+            </form>
+            
+        </section>
+
+        <section class="wrapper">
+            <h2>Code Source</h2>
+            <div id="container">
+              <pre id="myPre3">
+                let Générer_T=document.getElementById("Générer_T");
+                Générer_T.addEventListener("click", (e)=> {
+                e.preventDefault() 
+                let result='\n';
+                let y=document.getElementById("x").value; 
+                for( let i = 1; i <= 10; i++) {
+                 result += y + "*" + i + "="+ y*i+"<br>;
+                document.getElementById("MT").innerHTML=result;
+                } 
+                });
+              </pre>
+            </div>
+        </section>
+      </main>
+
+       <!-- ================== La boucle while_Devine le nombre ================= -->
+
+       <main id="Exercice4">
+        <section class="wrapper">
+            <h1>Devine le nombre !</h1>
+            <h2>Enoncé</h2>
+            <p id="p">L’utilisateur doit deviner un nombre entre 1 et 50 que le programme a choisi aléatoirement en 10 tentatives. Quand l’utilisateur entre une valeur, on lui affiche le nombre de tentatives restantes, ainsi
+                 qu’un message indiquant si sa réponse est correcte ou pas.</p>
+        </section>
+
+        <section class="wrapper for">
+            <h2>Démo</h2>
+            <form>
+              <div>
+                <p id="text-tentatif"></p>
+                <input type="number" id="nbr-guess" placeholder="Enter a number"> 
+                <p id="text-guess"></p>
+              </div>
+                <button id="DEnvoyer">Envoyer</button>
+                <button id="Devine_again">Start over</button>
+               
+            </form>
+            
+        </section>
+
+        <section class="wrapper ">
+            <h2>Code Source</h2>
+            <div id="container">
+              <pre id="myPre4">
+                let DEnvoyer=document.getElementById("DEnvoyer");
+                DEnvoyer.addEventListener("click" , (e) =>{
+                  e.preventDefault();
+                let nbrguess = Math.floor(Math.random() * 50) + 1;
+                let i = 10;
+                  let nmberguess = document.getElementById("nbr-guess").value;
+                  while (i > 0) {
+                    i--;
+                    console.log(i);
+                    document.getElementById("text-tentatif").innerHTML = "votre tentative" + i + "/10";
+                    document.getElementById("text-guess").innerHTML = "Réesseyez encore !";
+                    break;
+                  }
+                  if (nmberguess == nbrguess) {
+                    document.getElementById("text-guess").innerHTML = "Terminer !";
+                  }
+                  document.getElementById("myPre4").style.display= "block";
+                })
+              </pre>
+            </div>
+        </section>
+      </main>
+
+<!-- ================== Les boucles imbriquées_Losange en étoiles ================= -->
+
+<main id="Exercice5">
+    <section class="wrapper">
+        <h1>Losange en étoiles</h1>
+        <h2>Enoncé</h2>
+        <p id="p">ce programme a pour objectif de dessiner un losange en étoiles 
+                dont la longueur des diagonales est un nombre impair saisi par l'utilisateur entre un nombre pair, 
+                il faut afficher une erreur.</p>
+    </section>
+
+    <section class="wrapper impriquées">
+        <h2>Démo</h2>
+        <form>
+            <label for="number">Saisir la longueur des diagonales</label>
+            <input type="number" id="star" placeholder="Enter a number">
+            <button id="dessiner">Dessiner</button>
+            <button id="Losange_RT">Start over</button>
+            <pre id="paragraph"></pre>
+        </form>
+    </section>
+
+    <section class="wrapper">
+        <h2>Code Source</h2>
+        <div id="container">
+          <pre id="myPre5">
+            var dessiner = document.getElementById("dessiner");
+dessiner.addEventListener("click", (e) => {
+  e.preventDefault();
+  var usern = parseInt(document.getElementById("star").value);
+  if(usern % 2==0)
+  {
+    alert("you should enter a number impair")
+  }
+  else
+  {
+    console.log(usern);
+    let string = "";
+    let lvalue = (usern + 1) / 2;
+    for (let i = 1; i <= lvalue; i++) {
+      //  spaces
+      for (let j = lvalue; j > i; j--) {
+        string += " ";
+      }
+      // star
+      for (let k = 0; k < i * 2 - 1; k++) {
+        string += "*";
+      }
+      string += "\n";
+    }
+    for (let i = 1; i <= lvalue - 1; i++) {
+      // spaces
+      for (let j = 0; j < i; j++) {
+        string += " ";
+      }
+      // star
+      for (let k = (lvalue - i) * 2 - 1; k > 0; k--) {
+        string += "*";
+      }
+      string += "\n";
+    }
+    document.getElementById("paragraph").innerHTML = string;
+  }
+});
+          </pre>
+        </div>
+    </section>
+  </main>
+
+      <!-- ==================== Les fonction_Calculatrice =============== -->
+
+      <main id="Exercice6">
+        <section class="wrapper">
+            <h1>Calculatrice</h1>
+            <h2>Enoncé</h2>
+            <p id="p">Créez 4 fonctions Javascript (Somme, Soustraction, Division, Multiplication). L’utilisateur saisie deux nombres dans deux inputs, choisi ensuite une opération arithmétique. 
+                Le résultat est donné par l’une des 4 fonctions Javascript. </p>
+        </section>
+
+        <section class="wrapper for">
+            <h2>Démo</h2>
+            <form>
+              <div>
+                <input type="number" id="nbr1-calc">
+                <input type="number" id="nbr2-calc">
+              </div>
+              <div>
+                <button id="add" >+</button>
+                <button id="sou" >-</button>
+                <button id="mul" >*</button>
+                <button id="div" >/</button>
+              </div>
+              <div>
+                <input type="number" id="result">
+                <button id="Cal_SO">Start over</button>
+              </div>
+            </form>
+            
+        </section>
+
+        <section class="wrapper">
+            <h2>Code Source</h2>
+            <div id="container">
+              <pre id="myPre6">
+                let add = document.getElementById("add");
+                add.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let nbr1 = Number(document.getElementById("nbr1-calc").value);
+                    let nbr2 = Number(document.getElementById("nbr2-calc").value);
+                    let result;
+                    document.getElementById("result").value = nbr1 + nbr2;
+                  })
+              </pre>
+              <pre id="myPre6.2">
+                let sou = document.getElementById("sou");
+                sou.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let nbr1 = document.getElementById("nbr1-calc").value;
+                    let nbr2 = document.getElementById("nbr2-calc").value;
+                    let result;
+                    document.getElementById("result").value = nbr1 - nbr2;
+                  })
+            </pre>
+            <pre id="myPre6.3">
+                let mul = document.getElementById("mul");
+                mul.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let nbr1 = document.getElementById("nbr1-calc").value;
+                    let nbr2 = document.getElementById("nbr2-calc").value;
+                    let result;
+                    document.getElementById("result").value = nbr1 * nbr2;
+                  })
+            </pre>
+            <pre id="myPre6.4">
+                let div = document.getElementById("div");
+                div.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let nbr1 = document.getElementById("nbr1-calc").value;
+                    let nbr2 = document.getElementById("nbr2-calc").value;
+                    let result;
+                    document.getElementById("result").value = nbr1 / nbr2;
+                  })
+            </pre>
+            </div>
+        </section>
+      </main>
+
+ <!-- =============== Recherche et suppression dans une chaine ================ -->
+
+ <main id="Exercice7">
+    <section class="wrapper">
+        <h1>Recerche et suppression dans une chaine
+        </h1>
+        <h2>Enoncé</h2>
+        <p id="p">Ecrire un programme javascript qui demande à l'utilisateur de saisir une phrase dans une zone 
+                de text et un mot dans une autre zone de texte. Le clique sur le bouton rechercher affiche un message 
+                si le mot existe dans la phrase ou non . Le clique sur le bouton suprimer permet d"effacer toutes les 
+                occurrence du mot dans la phrase (si le mot existe bien sur )
+        </p>
+    </section>
+
+    <section class="wrapper Recherche">
+        <h2>Démo</h2>
+        <form>
+            <div>
+                <div>
+                    <label for="text">Saisir une phrase</label>
+                    <input type="text" id="Sp_chaine">
+                    <button id="recherchBtn">rechercher</button>
+                </div>
+                <div>
+                    <label for="text">Saisir le mot à rechercher ou à supprimer
+                    </label>
+                    <input type="text" id="RsWord">
+                    <button id="SOBtn">suprimer les occurrences</button>
+                    <button id="ReSO">Start over</button>
+                </div>
+            </div>
+            <div>
+            <p id="first_result"></p>
+            <p id="newResult"></p>
+          </div>
+        </form>
+    </section>
+
+    <section class="wrapper">
+        <h2>Code Source</h2>
+        <div id="container">
+          <pre id="myPre7">
+            const recherchBtn = document.getElementById("recherchBtn");
+            recherchBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const sentence = document.getElementById("Sp_chaine").value;
+                word = document.getElementById("RsWord").value.trim();
+                const result = document.getElementById("first_result");
+                arrSentence = sentence.split(" ");
+                recherchResult = arrSentence.includes(word);
+                if (recherchResult) result.innerHTML = "Trouvé";
+                else result.innerHTML = "pas trouvé";
+              });
+          </pre>
+          <pre id="myPre7.2">
+            const SOBtn = document.getElementById("SOBtn");
+            SOBtn.addEventListener("click", (e) => {
+                const newResult = document.getElementById("newResult");
+                e.preventDefault();
+                if (recherchResult) {
+                  const deletedWord = arrSentence.splice(arrSentence.indexOf(word), 1);
+                  newResult.innerHTML = arrSentence.join(" ");
+                }
+              });
+        </pre>
+        </div>
+    </section>
+   </main>
+
+<!-- ======================= Compter le nombre de voyelles dans une chaine ================ -->
+
+<main id="Exercice8">
+    <section class="wrapper">
+        <h1>Compter le nombre de voyelles dans une chaine</h1>
+        <h2>Enoncé</h2>
+        <p id="p">Ecrire un programme Javascript qui permet de calculer le nombre de voyelles
+             (a,e,i,o,u,y) dans une phrase saisie par l’utilisateur
+        </p>
+    </section>
+
+    <section class="wrapper Recherche">
+        <h2>Démo</h2>
+        <form>
+                <div>
+                    <label for="text">Saisir une phrase</label>
+                    <input type="text" id="mot">
+                    <button id="VoyelleBtn">Compter le nombre de voyelles</button>
+                    <button id="V_SO">Start over</button>
+                </div>
+                <p id="text"></p>
+        </form>
+    </section>
+
+    <section class="wrapper">
+        <h2>Code Source</h2>
+        <div id="container">
+          <pre id="myPre8">
+            let VoyelleBtn=document.getElementById("VoyelleBtn");
+            VoyelleBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            var mot = document.getElementById("mot").value;
+            var nbVoyelles = 0;
+            for (i = 0; i < mot.length; i++) {
+            var lettre = mot[i].toLowerCase();
+            if ((lettre === "a") || (lettre === "e") || (lettre === "i") || (lettre === "o") || (lettre === "u") || (lettre === "y")) {
+            nbVoyelles++;
+           }
+           }
+           document.getElementById("text").innerHTML = "le nombre de voyelles est : " + nbVoyelles
+           })
+          </pre>
+        </div>
+    </section>
+   </main>
+
+        <!-- ================== Tri d'un tablaeu =================== -->
+
+        <main id="Exercice9">
+            <section class="wrapper">
+                <h1>Tri d’un tableau</h1>
+                <h2>Enoncé</h2>
+                <p id="p">Ecrire un programme Javascript qui permet de trier un tableau d’entier (Utiliser n’importe quel algorithme de tri mais surtout pas la fonction Sort de l’objet Array).
+                    L’utilisateur commence tout d’abord par saisir la taille du tableau, ensuite il remplit le tableau pour cliquer à la fin sur un bouton trier : celui-ci affichera le tableau en ordre croissant ou décroissant.
+                    
+                </p>
+            </section>
+        
+            <section class="wrapper Recherche">
+                <h2>Démo</h2>
+                <form>
+                  <div>
+                    <div>
+                        <label for="number">Donner la taille du tableau</label>
+                        <input type="number" id="Ttable">
+                        <button id="TValider">Valider</button>
+                    </div>
+                    <div>
+                        <label for="number">Veuiller remplir le tableau</label>
+                        <div id="tableau1"></div>
+                        <button id="Trier">Trier</button>
+                        <button id="Tri_SO">Start Over</button>
+                    </div>
+                  </div>
+                  <div id="trier_inputs"></div>
+                </form>
+            </section>
+        
+            <section class="wrapper">
+                <h2>Code Source</h2>
+                <div id="container">
+                  <pre id="myPre9">
+                    var query = document.querySelectorAll("#tableau1 input");
+                    query.forEach((el) => el.remove());
+                    var querytri = document.querySelectorAll("#trier_inputs input");
+                    querytri.forEach((el) => el.remove());
+                    var taille1 = document.getElementById("Ttable").value;
+                    for (i = 0; i < taille1; i++) {
+                      var table1 = document.getElementById("tableau1");
+                      var inputtri = document.createElement("input");
+                      inputtri.setAttribute("id", "inputIdtri" + i);
+                      inputtri.setAttribute("type", "number");
+                      table1.appendChild(inputtri);
+                    }
+                  </pre>
+
+                  <pre id="myPre9.2">
+                    let Trier=document.getElementById("Trier");
+                    Trier.addEventListener("click" , (e)=>{
+                        e.preventDefault();
+                      
+                        const arraynbr1 = [];
+                        var a= document.querySelector
+                        var taille = document.getElementById("Ttable").value;
+                        var query = document.querySelectorAll("#tableau1 input");
+                        query.forEach(el => arraynbr1.push(el.value));
+                        let num;
+                        for (i = 0; i < (taille - 1); i++) {
+                          let min = i;
+                          for (j = i + 1; j < taille; j++) {
+                            if (arraynbr1[j] < arraynbr1[min]) 
+                            {
+                              min = j;
+                            }
+                          }
+                          if (min != i) {
+                            num = arraynbr1[i];
+                            arraynbr1[i] = arraynbr1[min];
+                            arraynbr1[min] = num;
+                          }
+                        }
+                        console.log(arraynbr1)
+                        for (i = 0; i < taille; i++) {
+                          var tabl = document.getElementById('trier_inputs');
+                          var inputtri1 = document.createElement('input');
+                          inputtri1.setAttribute('id', 'inputIdtri1' + i);
+                          tabl.appendChild(inputtri1);
+                          document.getElementById("inputIdtri1" + i).value=arraynbr1[i];
+                          document.getElementById("inputIdtri1" + i).value;
+                      
+                        }
+                      })
+                </pre>
+                </div>
+            </section>
+           </main>
+
+           <!-- ================= Recherche dans un tableau =============== -->
+
+           <main id="Exercice10">
+            <section class="wrapper">
+                <h1>Recherche dans un tableau</h1>
+                <h2>Enoncé</h2>
+                <p id="p">Ecrire un programme Javascript qui permet de rechercher une valeur dans un tableau d’entier. 
+                    L’utilisateur doit suivre les étapes suivantes :
+                    1.	Saisir la taille du tableau, 
+                    2.	Remplir le tableau par des entiers
+                    3.	Introduire la valeur à rechercher
+                    4.	Cliquer sur le boutons « Rechercher »
+                    Le programme affiche ensuite un message si la valeur à rechercher existe ou non dans le tableau.
+                    
+                </p>
+            </section>
+        
+            <section class="wrapper Recherche">
+                <h2>Démo</h2>
+                <form id="search-table">
+                  <div>
+                    <div>
+                     <label>Donner la taille du tableau</label>
+                     <input type="number" id="nbr_taille">
+                     <button id="RValider">Envoyer</button>
+                    </div>
+                    <div>
+                     <label>Veuiller remplir le tableau</label>
+                     <div id="tableau"></div>
+                    </div>
+                    <div>
+                     <label>Donner la valeur à rechercher dans le tableau</label>
+                     <input type="number" id="nbr_search">
+                     <button id="Stableau">search</button>
+                     <button id="SrT_SO">Start Over</button>
+                    </div>
+                </div>
+                    <p id="text_result"></p>
+                </form>
+            </section>
+            <section class="wrapper">
+                <h2>Code Source</h2>
+                <div id="container">
+                  <pre id="myPre10">
+                    let RValider=document.getElementById("RValider");
+                    RValider.addEventListener("click" , (e)=>{
+                        e.preventDefault();
+                        var taille = document.getElementById("nbr-taille").value;
+                          for (i = 0; i < taille; i++) {
+                          var table = document.getElementById('tableau');
+                          var inputtable = document.createElement('input');
+                          inputtable.setAttribute('id', 'inputId' + i);
+                          table.appendChild(inputtable);
+                        }
+                      })
+                  </pre>
+                  <pre id="myPre10.2">
+                    let Stableau=document.getElementById("Stableau");
+                    Stableau.addEventListener("click" , (e)=>{
+                        e.preventDefault();
+                        const arraynbr = []
+                          var find = false;
+                          var taille = document.getElementById("nbr-taille").value;
+                          var search = document.getElementById("nbr-search");
+                          var query = document.querySelectorAll("#tableau input");
+                          query.forEach(el => arraynbr.push(el.value));
+                          console.log(arraynbr);
+                          for (i = 0; i < taille; i++) {
+                            if (search.value == arraynbr[i]) {
+                              find = true;
+                              document.getElementById("text-result").innerHTML = "la valeur existe"
+                            }
+                          }
+                          find
+                            ? (document.getElementById("text-result").innerHTML = "la valeur existe")
+                            : (document.getElementById("text-result").innerHTML = "la valeur n'existe pas")
+                        })
+                  </pre>
+                </div>
+            </section>
+           </main>
+           <!-- <footer>
+            <div id="footer">
+              <div>
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span> Morocco, Tanger Ahlan</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span> Support@jslearning.com</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4>About us</h4>
+                <ul>
+                  <li>Our story</li>
+                  <li>our culture</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Services</h4>
+                <ul>
+                  <li>Privacy & policy</li>
+                  <li>terms of service</li>
+                </ul>
+              </div>
+            </div>
+            <div id="last">
+              <p id="copyright">&copy; All right reserved. JS_learning.com 2022</p>
+            </div>
+          </footer> -->
+        <script src="main.js"></script>
+    </body>
+</html>
